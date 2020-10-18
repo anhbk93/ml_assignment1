@@ -13,6 +13,7 @@ Next, write a program that lets the user type in the name of a file. Attempt to 
 
 Use a try/except block to do this (don’t just use a series of “if” statements—we want this program to be as “generic” as possible). You will not get credit for this part of the program if you write something like the following to identify valid data files:
 
+```python
 filename = input("Enter a filename: ")
 if filename == "class1":
         # open class1.txt
@@ -20,6 +21,8 @@ elif filename == "class2":
         # open class2.txt
 else:
         print ("Sorry, I can't find this filename")
+```
+
 Here’s a sample running of the program:
 
 Enter a class file to grade (i.e. class1 for class1.txt): foobar
@@ -32,28 +35,38 @@ Successfully opened class1.txt
 Next, you will need to analyze the data contained within the file you just opened to ensure that it is in the correct format. Each data file contains a series of student responses in the following format:
 
 N12345678,B,A,D,D,C,B,D,A,C,C,D,B,A,B,A,C,B,D,A,C,A,A,B,D,D
+
 or
 
 N12345678,B,,D,,C,B,,A,C,C,,B,A,B,A,,,,A,C,A,A,B,D,
+
 The first value is the student’s ID number. The following 25 letters are the student responses to the exam. All values are separated by commas. If there is no letter following a comma, this means the student skipped answering the question.
 
 Note that some lines of data may be corrupted! For example, this line of data does not have enough answers:
 
 N12345678,B,A,D,D,C,B
+
 And this line of data has too many answers:
 
 N12345678,B,A,D,D,C,B,D,A,C,C,D,B,A,B,A,C,B,D,A,C,A,A,B,D,D,A,B,C,D,E
+
 Your tasks for this part of the program is to do the following:
 
 Report the total # of lines of data stored in the file.
+
 Analyze each line and make sure that it is “valid.”
+
 A valid line contains a comma-separated list of 26 values
+
 The N# for a student is the first item on the line. It should contain the character “N” followed by 8 numeric characters.
+
 If a line of data is not valid you should report it to the user by printing out an error message. You should also count the total # of valid lines of data in the file.
+
 Hints: Use the split method to split apart the data from the file. You may need to use this method a few times along with a loop or two. Think about the order in which you need to split your items. For example, your file is organized so that one student’s record occupies an entire line in the file. Splitting first on the line break will isolate each student’s data. Then you will need to further split each item based on the separator character to pull out the responses for each student.
 
 Here is a sample running of your program for the first two data files. A complete listing of the expected output for all data files can be found in the downloadable package for this assignment.
 
+```
 Enter a class to grade (i.e. class1 for class1.txt): class1
 Successfully opened class1.txt
 **** ANALYZING ****
@@ -75,12 +88,14 @@ N00000035,B,A,D,D,B,B,,A,C,,D,B,A,B,A,A,B,D,A,C,A,C,B,D,D,A,A
 **** REPORT ****
 Total valid lines of data: 21
 Total invalid lines of data: 4
+```
 
-#Task 3:
+# Task 3:
 
 Next, you are going to write a program to grade the exams for a given section. The exam was a 25-question, multiple-choice exam. Here is a string that represents the answer key:
 
 answer_key = "B,A,D,D,C,B,D,A,C,C,D,B,A,B,A,C,B,D,A,C,A,A,B,D,D"
+
 Your program should use this key to compute a score for each valid line of data. Scores can be computed as follows:
 
 +4 points for every right answer
@@ -97,6 +112,7 @@ Hint: Once you’ve scored the students you should use a list to store individua
 
 Here is a sample running of your program for the first two data files. A complete listing of the expected output for all data files can be found in the downloadable package for this assignment.
 
+```
 Enter a class to grade (i.e. class1 for class1.txt): class1
 Successfully opened class1.txt
 **** ANALYZING ****
@@ -128,6 +144,7 @@ Highest score: 100
 Lowest score: 66
 Range of scores: 34
 Median score: 76
+```
 
 # Task 4:
 
