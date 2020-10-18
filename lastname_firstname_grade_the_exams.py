@@ -21,9 +21,10 @@ def validate_student_response(response):
 
     return status, data
 
+
 def main():
     try:
-        file_name = input("Enter a class file to grade (i.e. class1 for class1.txt):").strip()
+        file_name = input("Enter a class file to grade (i.e. class1 for class1.txt): ").strip()
         file_path = "./Data Files/" + file_name + ".txt"
 
         total_lines = 0
@@ -42,6 +43,7 @@ def main():
                 is_valid, obj_data = validate_student_response(line)
                 student_marks = [0] * 25
 
+                # Continue processing when the data in line is in valid format.
                 if is_valid:
                     valid_lines += 1
                     student_id = obj_data[0]
@@ -52,11 +54,11 @@ def main():
                         student_selection = student_response[idx-1].strip()
                         correct_answer = correct_answers[idx-1].strip()
                         
-                        if not student_selection:
+                        if not student_selection: # No point for skipped answer
                             point = 0
-                        elif student_selection == correct_answer:
+                        elif student_selection == correct_answer: # 4 points for correct answer
                             point = 4
-                        else:
+                        else: # -1 point for wrong answer
                             point = -1
                             
                         student_dict["SUBJECT" + str(idx)] = point
@@ -79,8 +81,9 @@ def main():
         new_df.describe()
 
         # Numpy
-        marks = new_df["Total"].tolist()
-        marks_np = np.array(marks)
+        marks = new_df["Total"].tolist() # Convert pandas Series to Python list
+        marks_np = np.array(marks) # Convert Python list to numpy array
+
         print("Mean (average) score: ", marks_np.mean())
         print("Highest score: ", marks_np.max())
         print("Lowest score: ", marks_np.min())
@@ -90,14 +93,25 @@ def main():
         new_df.reset_index(inplace=True)
         grades = new_df.values.tolist()
 
+        # Write data to file
         with open(f"./processed/{file_name}_grades.txt", "w") as w_file:
             for student, mark in grades:
                 w_file.write(f"{student},{mark}\n")
 
-            print("Finish assignment!")
+            print("Finish writting processed file!")
 
     except FileNotFoundError as ex:
-        print(f"Cannot find the file named {file_name} in 'Data Files' folder, please check and re-run the program.")
+        print(f"Cannot find the file named {file_name} in 'Data Files' folder, please check and run the program again.")
         print(f"Exception : {ex}")
 
-main()
+    except BaseException as ex1: # Catch on the unhandled exception
+        print("There was unhandled exception. Please check the log file.")
+        print(f"Exception : {ex1}")
+
+
+while True:
+    main()
+    answer = input("\n\nDo you want to continue processing another file? (Y/N): ").strip()
+    if answer.upper() != "Y":
+        print("Exitting!")
+        break
