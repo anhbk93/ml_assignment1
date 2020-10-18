@@ -1,6 +1,15 @@
 
 # Project name: Test Grade Calculator
 
+# How to run the project
+1. Make sure your machine have Python (version 3.6 or newer), pandas and numpy module installed.
+2. If you are using Windows, you should add your python scripts into PATH for more convenience in the future. [Instruction Here](https://geek-university.com/python/add-python-to-the-windows-path/).
+3. Download and extract the source code to your favorite folder.
+4. Open your terminal/cmd, use 'cd' command to change the working folder to your favorite folder above. Make sure your folder contains a file named 'lastname_firstname_grade_the_exams.py'.
+5. In terminal/cmd screen, user 'python --version' command to check your installed python version. If you see any errors about command not found, please go back to step 1 and repeat until you see your valid Python version.
+5. In the terminal/cmd, type 'python lastname_firstname_grade_the_exams.py' command to execute the program.
+
+
 Project Requirement
 
 Complete the following tasks in the project:
