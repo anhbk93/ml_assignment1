@@ -1,7 +1,7 @@
 
 # Project name: Test Grade Calculator
 
-# How to run the project
+## How to run the project
 1. Make sure your machine have Python (version 3.6 or newer), pandas and numpy module installed.
 2. If you are using Windows, you should add your python scripts into PATH for more convenience in the future. [Instruction Here](https://geek-university.com/python/add-python-to-the-windows-path/).
 3. Download and extract the source code to your favorite folder.
@@ -10,11 +10,11 @@
 5. In the terminal/cmd, type 'python lastname_firstname_grade_the_exams.py' command to execute the program.
 
 
-Project Requirement
+# Project Requirement
 
 Complete the following tasks in the project:
 
-# Task 1:
+## Task 1:
 
 Create a new Python program called “lastname_firstname_grade_the_exams.py.” (Make sure your source code file is inside of the same folder as the data files you just downloaded.)
 
@@ -39,7 +39,7 @@ File cannot be found.
 Enter a class file to grade (i.e. class1 for class1.txt): class1
 Successfully opened class1.txt
 
-# Task 2:
+## Task 2:
 
 Next, you will need to analyze the data contained within the file you just opened to ensure that it is in the correct format. Each data file contains a series of student responses in the following format:
 
@@ -99,7 +99,7 @@ Total valid lines of data: 21
 Total invalid lines of data: 4
 ```
 
-# Task 3:
+## Task 3:
 
 Next, you are going to write a program to grade the exams for a given section. The exam was a 25-question, multiple-choice exam. Here is a string that represents the answer key:
 
@@ -155,13 +155,14 @@ Range of scores: 34
 Median score: 76
 ```
 
-# Task 4:
+## Task 4:
 
 Finally, have your program generate a “results” file that contains the detailed results for each student in your class. Each line of this file should contain the student’s ID number, a comma, and then their grade. You should name this file based on the original filename supplied—for example, if the user wants to analyze “class1.txt” you should store the results in a file named “class1_grades.txt”.
 
 Here is a sample running of your program for the first two data files. A complete listing of the expected output for all data files can be found in the downloadable package for this assignment.
 
-### this is what class1_grades.txt should look like                               
+### this is what class1_grades.txt should look like
+```                           
 N00000001,59
 N00000002,70
 N00000003,84
@@ -182,7 +183,10 @@ N00000017,66
 N00000018,78
 N00000019,78
 N00000020,68
+```
+
 ### this is what class2_grades.txt should look like
+```
 N00000021,68
 N00000022,76
 N00000024,73
@@ -204,6 +208,8 @@ N00000042,100
 N00000043,86
 N00000044,90
 N00000045,67
+```
 
-# Task 5:
+## Task 5:
+
 Use only pandas and numpy when you implement task 1 to task 4.
